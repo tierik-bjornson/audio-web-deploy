@@ -2,12 +2,14 @@ replicaCount: 1
 
 image:
   repository: localhost:80/lab-audio-web/audio-web
-  tag: "v1" 
+  tag: "latest"
   pullPolicy: IfNotPresent
 
 service:
-  type: ClusterIP
-  port: 80
+  type: NodePort
+  port: 3000           
+  targetPort: 3000     
+  nodePort: 30060      
 
 serviceAccount:
   create: false  
@@ -16,11 +18,11 @@ serviceAccount:
   annotations: {}
 
 ingress:
-  enabled: false  #
+  enabled: false  
   className: "nginx"
   annotations: {}
   hosts:
-    - host: example.local
+    - host: localhost
       paths:
         - path: /
           pathType: ImplementationSpecific
