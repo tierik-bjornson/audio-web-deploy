@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: localhost:80/lab-audio-web/audio-web
   tag: "latest"
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 service:
   type: NodePort
