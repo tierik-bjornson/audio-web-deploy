@@ -18,8 +18,7 @@ spec:
         argocd-image-updater.argoproj.io/image-list: "audio-web=localhost:80/lab-audio-web/audio-web"
         # Cấu hình chiến lược cập nhật cho image (dùng latest)
         argocd-image-updater.argoproj.io/audio-web.update-strategy: "latest"
-        # Ép buộc ArgoCD ghi lại thay đổi vào Git nếu cần (tùy chọn)
-        argocd-image-updater.argoproj.io/audio-web.write-back-method: "git"
+  
     spec:
       containers:
       - name: {{ .Chart.Name }}
