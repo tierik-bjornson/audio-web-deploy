@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "audio-web-deploy.fullname" . }}
+  labels:
+    {{- include "audio-web-deploy.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "audio-web-deploy.selectorLabels" . | nindent 4 }}
