@@ -13,7 +13,7 @@ spec:
     metadata:
       labels:
         app: {{ .Chart.Name }}
-        rollme: {{ now | date "20060102150405" }}
+       
     spec:
       containers:
       - name: {{ .Chart.Name }}
