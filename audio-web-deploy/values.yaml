@@ -33,3 +33,11 @@ autoscaling:
   minReplicas: 2
   maxReplicas: 10
   targetCPUUtilizationPercentage: 80
+
+resources:
+  requests:
+    cpu: "1"       
+    memory: "1Gi" 
+  limits:
+    cpu: "2"       
+    memory: "8Gi" 
