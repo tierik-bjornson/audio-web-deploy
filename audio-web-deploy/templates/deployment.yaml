@@ -13,10 +13,8 @@ spec:
     metadata:
       labels:
         app: {{ .Chart.Name }}
-      annotations:
-        # Định nghĩa danh sách image mà Image Updater sẽ theo dõi
+      annotations:      
         argocd-image-updater.argoproj.io/image-list: "audio-web=localhost:80/lab-audio-web/audio-web"
-        # Cấu hình chiến lược cập nhật cho image (dùng latest)
         argocd-image-updater.argoproj.io/audio-web.update-strategy: "latest"
   
     spec:
@@ -24,5 +22,13 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        resources:
+          requests:
+            cpu: {{ .Values.resources.requests.cpu }}
+            memory: {{ .Values.resources.requests.memory }}
+          limits:
+            cpu: {{ .Values.resources.limits.cpu }}
+            memory: {{ .Values.resources.limits.memory }}
         ports:
         - containerPort: 3000
+      
