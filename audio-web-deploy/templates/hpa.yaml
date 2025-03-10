@@ -10,6 +10,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: {{ include "audio-web-deploy.fullname" . }}
+    namespace: {{ .Release.Namespace }}  
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
@@ -30,3 +31,4 @@ spec:
           averageUtilization: {{ .Values.autoscaling.targetMemoryUtilizationPercentage }}
     {{- end }}
 {{- end }}
+
