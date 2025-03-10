@@ -9,7 +9,8 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "audio-web-deploy.fullname" . }}
+    name: audio-web-deploy                                  
+    # {{ include "audio-web-deploy.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
