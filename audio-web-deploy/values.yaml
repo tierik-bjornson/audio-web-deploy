@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: localhost:80/lab-audio-web/audio-web
-  tag: "latest"
+  tag: "4"
   pullPolicy: Always
 
 service:
