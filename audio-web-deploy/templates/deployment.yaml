@@ -18,6 +18,8 @@ spec:
         argocd-image-updater.argoproj.io/audio-web.update-strategy: "latest"
   
     spec:
+      imagePullSecrets:
+        - name: my-secret 
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
