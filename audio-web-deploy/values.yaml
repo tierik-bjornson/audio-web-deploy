@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: localhost:8089/audio-ecomweb/audio-web-reactjs
-  tag: "17"
+  tag: "18"
   pullPolicy: Always
 
 service:
